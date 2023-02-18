@@ -1,25 +1,31 @@
 ﻿using TrivialCollections.Library;
 using TrivialCollections.Library.Interfaces;
 
-var test1 = new Test { Data = new IntWrapper { Number = 1 } };
-var test2 = new Test { Data = null };
-var test3 = new Test { Data = new IntWrapper { Number = 3 } };
+// Замер памяти на утечку
+var firstMemoryUsage = GC.GetTotalMemory(true);
+Console.WriteLine("Использовано памяти: " + firstMemoryUsage);
+
+var test1 = new TestClass { Data = new IntWrapper { Number = 1 } };
+var test2 = new TestClass { Data = null };
+var test3 = new TestClass { Data = new IntWrapper { Number = 3 } };
 
 Console.WriteLine("STACK test:");
 
-IStack<Test> stack = new TrivialStack<Test>();
-stack.Push(test1);
-stack.Push(test2);
-stack.Push(test3);
+IStack<TestClass> stack = new TrivialStack<TestClass>();
+// цикл для проверки утечки памяти
+//for (var i = 0; i < 1000; i++) 
+{
+    stack.Push(test1);
+    stack.Push(test2);
+    stack.Push(test3);
 
-Console.WriteLine("Peek: " + stack.Peek());
-Console.WriteLine("Peek: " + stack.Peek());
+    Console.WriteLine("Peek: " + stack.Peek());
+    Console.WriteLine("Peek: " + stack.Peek());
 
-Console.WriteLine("*****");
+    Console.WriteLine("*****");
 
-Console.WriteLine("Pop: " + stack.Pop());
-Console.WriteLine("Pop: " + stack.Pop());
-Console.WriteLine("Pop: " + stack.Pop());
+    while (!stack.IsEmpty) Console.WriteLine("Pop: " + stack.Pop());
+}
 
 Console.WriteLine("*****");
 
@@ -35,19 +41,21 @@ catch (InvalidOperationException e)
 
 Console.WriteLine("\nQUEUE test:");
 
-IQueue<Test> queue = new TrivialQueue<Test>();
-queue.Enqueue(test1);
-queue.Enqueue(test2);
-queue.Enqueue(test3);
+IQueue<TestClass> queue = new TrivialQueue<TestClass>();
+// цикл для проверки утечки памяти
+//for (var i = 0; i < 1000; i++) 
+{
+    queue.Enqueue(test1);
+    queue.Enqueue(test2);
+    queue.Enqueue(test3);
 
-Console.WriteLine("Peek: " + queue.Peek());
-Console.WriteLine("Peek: " + queue.Peek());
+    Console.WriteLine("Peek: " + queue.Peek());
+    Console.WriteLine("Peek: " + queue.Peek());
 
-Console.WriteLine("*****");
+    Console.WriteLine("*****");
 
-Console.WriteLine("Dequeue: " + queue.Dequeue());
-Console.WriteLine("Dequeue: " + queue.Dequeue());
-Console.WriteLine("Dequeue: " + queue.Dequeue());
+    while (!queue.IsEmpty) Console.WriteLine("Dequeue: " + queue.Dequeue());
+}
 
 Console.WriteLine("*****");
 
@@ -61,9 +69,12 @@ catch (InvalidOperationException e)
     Console.WriteLine("Так было задумано)))");
 }
 
+Console.WriteLine("*****");
+Console.WriteLine("Использовано памяти: " + (GC.GetTotalMemory(true) - firstMemoryUsage));
+
 Console.ReadLine();
 
-file class Test
+file class TestClass
 {
     public IntWrapper? Data { get; init; }
 

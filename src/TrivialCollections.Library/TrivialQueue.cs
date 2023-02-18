@@ -2,9 +2,18 @@
 
 namespace TrivialCollections.Library;
 
+/// <summary>
+/// Представляет коллекцию объектов, основанную на принципе «первым поступил — первым обслужен» (FIFO).
+/// </summary>
+/// <typeparam name="T">Задает тип элементов в очереди.</typeparam>
 public class TrivialQueue<T> : IQueue<T>
 {
+    /// <summary>
+    /// Первый элемент в очереди.
+    /// </summary>
     private LinkedNode<T>? _first;
+
+    public bool IsEmpty => _first is null;
 
     public void Enqueue(T? item)
     {
@@ -23,13 +32,12 @@ public class TrivialQueue<T> : IQueue<T>
 
     public T? Dequeue()
     {
-        if (_first is null) throw new InvalidOperationException("Очередь пуста");
+        if (IsEmpty) throw new InvalidOperationException("Очередь пуста");
 
-        var result = _first.Data;
+        var result = _first!.Data;
         _first = _first.Link;
         return result;
     }
 
-    public T? Peek() => 
-        _first is null ? throw new InvalidOperationException("Очередь пуста") : _first.Data;
+    public T? Peek() => IsEmpty ? throw new InvalidOperationException("Очередь пуста") : _first!.Data;
 }
