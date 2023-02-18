@@ -2,7 +2,7 @@
 using TrivialCollections.Library.Interfaces;
 
 // Замер памяти на утечку
-var firstMemoryUsage = GC.GetTotalMemory(true);
+//var firstMemoryUsage = GC.GetTotalMemory(true);
 Console.WriteLine("Использовано памяти: " + firstMemoryUsage);
 
 var test1 = new TestClass { Data = new IntWrapper { Number = 1 } };
@@ -16,8 +16,13 @@ IStack<TestClass> stack = new TrivialStack<TestClass>();
 //for (var i = 0; i < 1000; i++) 
 {
     stack.Push(test1);
+    Console.WriteLine("Добавили в стек: " + test1);
     stack.Push(test2);
+    Console.WriteLine("Добавили в стек: " + test2);
     stack.Push(test3);
+    Console.WriteLine("Добавили в стек: " + test3);
+
+    Console.WriteLine("*****");
 
     Console.WriteLine("Peek: " + stack.Peek());
     Console.WriteLine("Peek: " + stack.Peek());
