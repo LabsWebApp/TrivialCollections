@@ -32,12 +32,12 @@ public class TrivialQueue<T> : IQueue<T>
 
     public T? Dequeue()
     {
-        if (IsEmpty) throw new InvalidOperationException("Очередь пуста");
+        if (IsEmpty) throw new InvalidOperationException("Очередь пуста.");
 
         var result = _first!.Data;
         _first = _first.Link;
         return result;
     }
 
-    public T? Peek() => IsEmpty ? throw new InvalidOperationException("Очередь пуста") : _first!.Data;
+    public T? Peek() => IsEmpty ? throw new InvalidOperationException("Очередь пуста.") : _first!.Data;
 }

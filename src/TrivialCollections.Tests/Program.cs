@@ -2,8 +2,8 @@
 using TrivialCollections.Library.Interfaces;
 
 // Замер памяти на утечку
-//var firstMemoryUsage = GC.GetTotalMemory(true);
-//Console.WriteLine("Использовано памяти: " + firstMemoryUsage);
+var firstMemoryUsage = GC.GetTotalMemory(true);
+Console.WriteLine("Всего занято памяти до начала работы: " + firstMemoryUsage);
 
 var test1 = new TestClass { Data = new IntWrapper { Number = 1 } };
 var test2 = new TestClass { Data = null };
