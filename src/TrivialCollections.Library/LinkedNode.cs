@@ -12,7 +12,7 @@ internal sealed class LinkedNode<T>
     internal T? Data { get; init; }
 
     /// <summary>
-    /// Получает ссылку на связный узел.
+    /// Получает и устанавливает ссылку на связный узел.
     /// </summary>
     internal LinkedNode<T>? Link { get; set; }
 
