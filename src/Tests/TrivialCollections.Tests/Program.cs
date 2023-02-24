@@ -1,4 +1,5 @@
-﻿using TrivialCollections.Library;
+﻿using System.Threading.Channels;
+using TrivialCollections.Library;
 using TrivialCollections.Library.Interfaces;
 
 // Замер памяти на утечку
@@ -13,7 +14,7 @@ Console.WriteLine("STACK test:");
 
 IStack<TestClass> stack = new TrivialStack<TestClass>();
 // цикл для проверки утечки памяти
-//for (var i = 0; i < 1000; i++) 
+for (var i = 0; i < 10000; i++) 
 {
     stack.Push(test1);
     Console.WriteLine("Добавили в стек: " + test1);
@@ -48,11 +49,16 @@ Console.WriteLine("\nQUEUE test:");
 
 IQueue<TestClass> queue = new TrivialQueue<TestClass>();
 // цикл для проверки утечки памяти
-//for (var i = 0; i < 1000; i++) 
+for (var i = 0; i < 10000; i++) 
 {
     queue.Enqueue(test1);
+    Console.WriteLine("Поставили в очередь: " + test1);
     queue.Enqueue(test2);
+    Console.WriteLine("Поставили в очередь: " + test2);
     queue.Enqueue(test3);
+    Console.WriteLine("Поставили в очередь: " + test3);
+
+    Console.WriteLine("*****");
 
     Console.WriteLine("Peek: " + queue.Peek());
     Console.WriteLine("Peek: " + queue.Peek());

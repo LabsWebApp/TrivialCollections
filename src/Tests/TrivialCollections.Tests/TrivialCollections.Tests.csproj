@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TrivialCollections.Library\TrivialCollections.Library.csproj" />
+    <ProjectReference Include="..\..\TrivialCollections.Library\TrivialCollections.Library.csproj" />
   </ItemGroup>
 
 </Project>
