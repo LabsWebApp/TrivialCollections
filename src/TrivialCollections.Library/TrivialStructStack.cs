@@ -3,10 +3,10 @@
 namespace TrivialCollections.Library;
 
 /// <summary>
-/// Представляет класс-коллекцию, обслуживаемую по принципу "последним пришел - первым вышел" (LIFO).
+/// Представляет структуру-коллекцию, обслуживаемую по принципу "последним пришел - первым вышел" (LIFO).
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class TrivialStack<T> : IStack<T>
+public struct TrivialStructStack<T> : IStack<T>
 {
     /// <summary>
     /// Последний элемент в стеке.

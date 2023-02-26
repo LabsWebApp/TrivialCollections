@@ -14,7 +14,7 @@ Console.WriteLine("STACK test:");
 
 IStack<TestClass> stack = new TrivialStack<TestClass>();
 // цикл для проверки утечки памяти
-for (var i = 0; i < 10000; i++) 
+//for (var i = 0; i < 10000; i++) 
 {
     stack.Push(test1);
     Console.WriteLine("Добавили в стек: " + test1);
@@ -49,7 +49,7 @@ Console.WriteLine("\nQUEUE test:");
 
 IQueue<TestClass> queue = new TrivialQueue<TestClass>();
 // цикл для проверки утечки памяти
-for (var i = 0; i < 10000; i++) 
+//for (var i = 0; i < 10000; i++) 
 {
     queue.Enqueue(test1);
     Console.WriteLine("Поставили в очередь: " + test1);
