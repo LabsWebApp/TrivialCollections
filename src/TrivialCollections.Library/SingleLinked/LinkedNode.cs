@@ -1,4 +1,4 @@
-﻿namespace TrivialCollections.Library;
+﻿namespace TrivialCollections.Library.SingleLinked;
 
 /// <summary>
 /// Представляет узел в односвязных списках. Этот класс не наследуется.

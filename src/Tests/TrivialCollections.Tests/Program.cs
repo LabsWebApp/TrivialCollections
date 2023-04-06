@@ -1,6 +1,7 @@
 ﻿using System.Threading.Channels;
 using TrivialCollections.Library;
 using TrivialCollections.Library.Interfaces;
+using TrivialCollections.Library.SingleLinked;
 
 // Замер памяти на утечку
 var firstMemoryUsage = GC.GetTotalMemory(true);

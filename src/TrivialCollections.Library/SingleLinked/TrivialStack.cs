@@ -1,6 +1,6 @@
 ﻿using TrivialCollections.Library.Interfaces;
 
-namespace TrivialCollections.Library;
+namespace TrivialCollections.Library.SingleLinked;
 
 /// <summary>
 /// Представляет класс-коллекцию, обслуживаемую по принципу "последним пришел - первым вышел" (LIFO).

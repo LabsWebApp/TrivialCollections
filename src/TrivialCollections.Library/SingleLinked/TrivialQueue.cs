@@ -1,6 +1,6 @@
 ﻿using TrivialCollections.Library.Interfaces;
 
-namespace TrivialCollections.Library;
+namespace TrivialCollections.Library.SingleLinked;
 
 /// <summary>
 /// Представляет коллекцию объектов, основанную на принципе «первым поступил — первым обслужен» (FIFO).
